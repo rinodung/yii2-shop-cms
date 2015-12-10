@@ -54,19 +54,21 @@ Perfectly runs on $10 VPS from [DigitalOcean](https://www.digitalocean.com/?refc
 
 ## Installation
 
-First install composer dependencies:
+First clone and  install composer dependencies:
 
 ``` bash
 
-$ cd application
+$ git clone https://github.com/rinodung/yii2-shop-cms.git
+
+# if you need composer
 $ php ../composer.phar global require "fxp/composer-asset-plugin:~1.1.0"
 $ php ../composer.phar install --prefer-dist --optimize-autoloader
 
 ```
 
-Your virtual server DocumentRoot directory should point to `application/web`.
+Your virtual server DocumentRoot directory should point to `web`.
 
-Then run `./installer` in application folder.
+Then access `http://YOUR_HOSTNAME/installer.php` on the browser
 
 Backend is located at http://YOUR_HOSTNAME/backend/
 
@@ -79,8 +81,6 @@ Backend is located at http://YOUR_HOSTNAME/backend/
 **WARNING-2** Demo migration also downloads big(~90Mb) archive with sample images.
 
 ```
-vagrant ssh
-cd /var/www/dotplant2/application/
 ./demo.sh
 ./yii cache/flush cache --interactive=0
 ```
@@ -88,29 +88,6 @@ cd /var/www/dotplant2/application/
 Go to http://YOUR_HOSTNAME/catalog
 
 
-## Vagrant
-
-This box currently uses master branch of dotplant2.
-
-How to use:
-
-```
-git clone https://github.com/DevGroup-ru/dotplant2-vagrant.git && cd dotplant2-vagrant
-vagrant up
-vagrant ssh
-```
-
-Go to: http://192.168.56.111/
-
-Backend: http://192.168.56.111/backend
-
-Admin user is `admin` with password `password`.
-
-Vagrant box doesn't installs demo data. You can do it manually(see above).
-
-## Current project status
-
-DotPlant 2 is in beta stage. You can use it on production, but be ready for minor changes like variable names changes,  view-markup changes and new theme parts&widgets.
 
 ## Migrating from alpha
 
